@@ -19,3 +19,7 @@ class SomeClass:
 
     def asc_sorting(self):
         return sorted(self.lst, reverse=False)
+
+    def sorted_func(self):
+        return sorted(self.lst, reverse=False)
+

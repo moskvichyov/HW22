@@ -1,12 +1,3 @@
-# Создайте абстрактный класс автомобиля Transport c абстрактными методами
-# - start_engine
-# - stop_engine
-# - move
-# - stop
-
-# Унаследуйте от него три класса Boat, Car, Electroscooter
-# для каждого из требуемых методов через print укажите какое-либо действие.
-# К примеру start_engine -> print('Двигатель катера запущен')
 
 # Создайте класс Person у которого будет один единственный метод use_transport.
 # В данный метод в качестве параметра должен передаваться объект реализующий интерфейс Transport
@@ -39,7 +30,77 @@
 
 # код должен выполняться не выбрасывая исключений
 
-# TODO напишите Ваш код здесь
+from abc import ABC, abstractmethod
+
+
+class Transport(ABC):
+
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+    @abstractmethod
+    def stop_engine(self):
+        pass
+
+    @abstractmethod
+    def move(self):
+        pass
+
+    @abstractmethod
+    def stop(self):
+        pass
+
+
+class Boat(Transport):
+    def start_engine(self):
+        print("Водный двигатель заведен")
+
+    def stop_engine(self):
+        print("Водный двигатель остановлен")
+
+    def move(self):
+        print("Лодка движется")
+
+    def stop(self):
+        print("Лодка стоит на месте")
+
+
+class Car(Transport):
+    def start_engine(self):
+        print("ДВС заведен")
+
+    def stop_engine(self):
+        print("ДВС остановлен")
+
+    def move(self):
+        print("Авто движется")
+
+    def stop(self):
+        print("Авто стоит на месте")
+
+
+class Electroscooter(Transport):
+    def start_engine(self):
+        print("Электро-двигатель заведен")
+
+    def stop_engine(self):
+        print("Электро-двигатель остановлен")
+
+    def move(self):
+        print("Электросамокат движется")
+
+    def stop(self):
+        print("Электросамокат стоит на месте")
+
+
+class Person:
+
+    def use_transport(self, transport: Transport):
+        transport.start_engine()
+        transport.move()
+        transport.stop()
+        transport.stop_engine()
 
 
 # Отрезок кода для самопроверки.
